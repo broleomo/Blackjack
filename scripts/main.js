@@ -9,30 +9,67 @@
    write your logic.
 */
 
-let test = ["3", "4", "5"];
-let total = 0;
-let array = [];
-let card1 = 0;
-function handValue (test) {
 
-for (let i = 0; i < test.length; i++) {
-  card1 = parseInt(test[i]);
-  array.push(card1);
-  total += array[i];
-}
-  return total;
-}
+  // let handTotal = [];
+// let card1 = 0;
+function handValue (hand) {
+    let card = 0;
+    let total = 0;
+  // creating a loop for variables within the hand
+for (let i = 0; i < hand.length; i++) {
+  if (hand[i] === "K" || hand[i] === "Q" || hand[i] === "J"){
+    card = 10;
+    total = total + card;
+  } else if (hand[i] === "A") {
+      if (total >= 11) {
+        card = 1;
+        total = total + card;
+      } else {
+        card = 11
+        total = total + card;
+        }
+      } else {
+        card = hand[i];
+        total = total + parseInt(card);
+        }
+      }
+      // if someone has an A in their hand and end up busting, subtract 10 from tht total
+for (let i = 0; i < hand.length; i++) {
+    if (total > 21 && hand[i] === "A") {
+      total = total - 10;
+    }
+    }
+    return total;
+  }
+  // console.log(handValue(["4","4","8"]));
+  // console.log(handValue(["4","A","2"]));
+  // console.log(handValue(["4","Q","J"]));
+//   }
+// }
+
+//
+// if (total > 21) {
+//   return "Bust";
+//   }
+//   return total;
+// }
 
 
-// console.log(handValue(["3", "4", "5"]));
 
-// console.log(handValue(["3", "4", "5"]));
-console.log(handValue(["3", "4", "K"]));
 
-if(hand[i] === "K") {
-  card1 = 10;
-}
 
+
+
+//
+// // console.log(handValue(["3", "4", "5"]));
+//
+// // console.log(handValue(["3", "4", "5"]));
+// console.log(handValue(["3", "4", "K"]));
+//
+// if(hand[i] === "K") {
+//   card1 = 10;
+// }
+//
 
 
 
